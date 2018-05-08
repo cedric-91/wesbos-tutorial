@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ES6</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="box">
+    <img class="box__img" src="img/pexels-photo.jpg" alt="adventure-altitude">
+    <h1 class="box__title">Hello There!</h1>
+    <p class="box__text">Cedric Cedric</p>
+  </div>
+  <script>
+    const ages = [14, 32, 60, 40, 68, 90];
+
+    const number = ages.map(age => age * 2); // Map creates a new array
+
+    const checkAge = ages.filter(age => age <= 14); // Creates a new array that checks the given value
+
+    console.log(checkAge);
+
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>
