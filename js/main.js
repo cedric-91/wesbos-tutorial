@@ -25,4 +25,20 @@ const filtered = items
 const numbers = [3, 62, 234, 7, 23, 74, 23, 76, 92];
 const filterNumber = numbers.filter(numberFilter => numberFilter > 70);
 
-console.log(filterNumber);
+
+// Songs
+const songs = {
+  name: 'All eyez on me',
+  artist: 'Tupac',
+  featuring: 'Biggie Smalls'
+};
+
+const markup = `
+  <li>${songs.name} - ${songs.artist} ${songs.featuring ? `(ft ${songs.featuring})` : ''}</li>
+`;
+
+const html = document.querySelector('.songs');
+
+html.innerHTML = markup;
+
+console.log(filtered);
