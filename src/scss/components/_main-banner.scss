@@ -1,0 +1,35 @@
+.main-banner {
+  background-color: #ccc;
+  max-height: 250px;
+
+  &__wrapper {
+    position: relative;
+    height: 0;
+    padding-top: calc((427 / 640) * 100%);
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  &__title {
+    color: #fff;
+    text-transform: uppercase;
+  }
+}
+
+// .box .box__title,
+// .box .box__text {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   padding: 0 .75rem;
+//   z-index: 2;
+// }
+
+.box .box__title {
+
+}

@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box; }
+
+html, body {
+  height: 100%; }
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 0; }
+
+.main-banner {
+  background-color: #ccc;
+  max-height: 250px; }
+  .main-banner__wrapper {
+    position: relative;
+    height: 0;
+    padding-top: calc((427 / 640) * 100%); }
+  .main-banner__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; }
+  .main-banner__title {
+    color: #fff;
+    text-transform: uppercase; }

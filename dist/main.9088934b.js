@@ -77,7 +77,7 @@ parcelRequire = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({7:[function(require,module,exports) {
+})({10:[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -107,7 +107,7 @@ function getBaseURL(url) {
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],6:[function(require,module,exports) {
+},{}],9:[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -138,13 +138,13 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":7}],4:[function(require,module,exports) {
+},{"./bundle-url":10}],4:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":6}],5:[function(require,module,exports) {
+},{"_css_loader":9}],5:[function(require,module,exports) {
 // Select all the list on the page and convert to an array
 var items = Array.from(document.querySelectorAll('[data-time]'));
 
@@ -167,7 +167,7 @@ var filtered = items.filter(function (item) {
 .reduce(function (runningTotal, seconds) {
   return runningTotal + seconds;
 }, 0);
-},{}],12:[function(require,module,exports) {
+},{}],6:[function(require,module,exports) {
 var ages = [14, 32, 60, 40, 68, 90];
 
 var number = ages.map(function (age) {
@@ -198,6 +198,8 @@ var html = document.querySelector('.songs');
 html.innerHTML = markup;
 
 // Books
+var booksContainer = document.querySelector('.books-container');
+
 var books = [{
   title: 'Book1',
   pages: 182,
@@ -214,20 +216,69 @@ var books = [{
   title: 'Book3',
   pages: 80,
   author: ['Jhon Doe', 'Lucas Frederick'],
-  publisher: 'Virgin',
-  ratings: 2.5
+  publisher: 'Virgin'
 }];
 
-var booksContainer = document.querySelector('.books-container');
-},{}],2:[function(require,module,exports) {
+var output = '';
+
+var displayBooks = function displayBooks() {
+  books.forEach(function (book) {
+    output += '\n      <h2 class="books__title">' + book.title + '</h2>\n      <span class="books__page">' + book.pages + '</span>\n      <span class="books__author">' + book.author + '</span>\n      <span class="books__publisher">' + book.publisher + '</span>\n      ' + (book.ratings ? '<span class="books__ratings">' + book.ratings + '</span>' : '') + '\n    ';
+  });
+
+  return booksContainer.innerHTML = output;
+};
+
+displayBooks();
+},{}],16:[function(require,module,exports) {
+module.exports = {
+  mainBanner: [{
+    img: '//images.pexels.com/photos/459225/pexels-photo-459225.jpeg?cs=srgb&dl=daylight-environment-forest-459225.jpg&fm=jpg',
+    title: 'Mountains',
+    subTitle: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+    text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur tempore, magnam maiores fugafugiat possimus itaque autem repellendus inventore adipisci.'
+  }, {
+    img: '//images.pexels.com/photos/210243/pexels-photo-210243.jpeg?cs=srgb&dl=autumn-beautiful-city-210243.jpg&fm=jpg',
+    title: 'Adventure',
+    subTitle: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+    text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur tempore, magnam maiores fuga fugiat possimus itaque autem repellendus inventore adipisci.'
+  }, {
+    img: '//images.pexels.com/photos/7919/pexels-photo.jpg?cs=srgb&dl=cc0-desktop-backgrounds-fog-7919.jpg&fm=jpg',
+    title: 'Third Image',
+    text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur tempore, magnam maiores fuga fugiat possimus itaque autem repellendus inventore adipisci.'
+  }]
+};
+},{}],13:[function(require,module,exports) {
+'use strict';
+
+var _mainBanner = require('../content/main-banner');
+
+var _mainBanner2 = _interopRequireDefault(_mainBanner);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mainBanner = document.querySelector('.main-banner');
+var output = '';
+
+var displayBanners = function displayBanners() {
+  _mainBanner2.default.mainBanner.forEach(function (banner) {
+    output += '\n      <div class="main-banner__wrapper">\n        <img class="main-banner__img" src="' + banner.img + '">\n        <h1 class="main-banner__title">' + banner.title + '</h1>\n        ' + (banner.subTitle ? '<h2 class="main-banner__sub-title">' + banner.subTitle + '</h2>' : '') + '\n        <p>' + banner.text + '</p>\n      </div>\n    ';
+  });
+
+  return mainBanner.innerHTML = output;
+};
+displayBanners();
+},{"../content/main-banner":16}],2:[function(require,module,exports) {
 'use strict';
 
 require('./scss/styles.scss');
 
-require('./js/module-1.js');
+require('./js/module-1');
 
-require('./js/module-2.js');
-},{"./scss/styles.scss":4,"./js/module-1.js":5,"./js/module-2.js":12}],13:[function(require,module,exports) {
+require('./js/module-2');
+
+require('./js/main-banner');
+},{"./scss/styles.scss":4,"./js/module-1":5,"./js/module-2":6,"./js/main-banner":13}],14:[function(require,module,exports) {
 
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -257,7 +308,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '56494' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '63549' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -396,5 +447,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[13,2])
-//# sourceMappingURL=/entry.d476b07c.map
+},{}]},{},[14,2])
+//# sourceMappingURL=/main.9088934b.map

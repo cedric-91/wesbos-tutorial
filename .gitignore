@@ -1,3 +1,4 @@
 # Files with don't want to include on commit
 node_modules
 .vscode
+.cache

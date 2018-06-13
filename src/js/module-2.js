@@ -25,6 +25,8 @@ const html = document.querySelector('.songs');
 html.innerHTML = markup;
 
 // Books
+const booksContainer = document.querySelector('.books-container');
+
 const books = [
   {
     title: 'Book1',
@@ -36,7 +38,7 @@ const books = [
   {
     title: 'Book2',
     pages: 230,
-    author: ['Jhon Doe', 'Lucas Frederick'],
+    author: ['Cedric Siewe'],
     publisher: 'Sony',
     ratings: .8
   },
@@ -44,9 +46,24 @@ const books = [
     title: 'Book3',
     pages: 80,
     author: ['Jhon Doe', 'Lucas Frederick'],
-    publisher: 'Virgin',
-    ratings: 2.5
+    publisher: 'Virgin'
   }
 ];
 
+let output = '';
 
+const displayBooks = () => {
+  books.forEach(book => {
+    output += `
+      <h2 class="books__title">${book.title}</h2>
+      <span class="books__page">${book.pages}</span>
+      <span class="books__author">${book.author}</span>
+      <span class="books__publisher">${book.publisher}</span>
+      ${book.ratings ? `<span class="books__ratings">${book.ratings}</span>` : ''}
+    `;
+  });
+
+  return booksContainer.innerHTML = output;
+};
+
+displayBooks();
